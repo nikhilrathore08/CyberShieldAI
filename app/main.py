@@ -13,8 +13,7 @@ from app.preprocess import clean_text
 #load trained artifacts
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 vectorizer = joblib.load(
-    os.path.join(BASE_DIR,
-                 "models/artifacts/tfidf_vectorizer.pkl")
+    os.path.join(BASE_DIR,"models/artifacts/tfidf_vectorizer.pkl")
 )
 
 model = joblib.load(

@@ -10,23 +10,15 @@ from app.preprocess import clean_text
 #load dataset
 df = pd.read_csv("data/scam_messages.csv")
 
-rare_classes = [
-    "GAMBLING_SCAM",
-    "PHARMA_SCAM",
-    "UTILITY_BILL_SCAM",
-    "SUBSCRIPTION_SCAM",
-    'OTP_PHISHING', 
-    'PAYMENT_FRAUD'
-]
 
-df["category_scam"] = df["category_scam"].replace(
-    rare_classes, "OTHER_SCAM"
-)
+
 #clean messages
-df["clean_message"]= df["message"].apply(clean_text)
+df["message"]= df["message"].apply(clean_text)
 
-X = df["clean_message"]
-Y = df["category_scam"]
+df = df.dropna(subset=["label"])
+
+X = df["message"]
+Y = df["label"]
 
 
 X_train,X_test,y_train,y_test = train_test_split(
