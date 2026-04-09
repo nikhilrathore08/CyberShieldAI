@@ -1,7 +1,7 @@
 import re
 import nltk
 from nltk.corpus import stopwords
-
+## temp cahnge
 nltk.download("stopwords")
 STOP_WORDS = set(stopwords.words("english"))
 
@@ -17,4 +17,3 @@ def clean_text(text: str) ->str:
     ]
 
     return " ".join(tokens)
-
